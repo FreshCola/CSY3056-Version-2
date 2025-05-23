@@ -26,7 +26,7 @@ pipeline {
             steps {
                 bat '''
                 echo "== Deploying Docker Container =="
-                docker run -d -p 8080:80 --name my-assignment-container my-assignment-app
+                docker run -d -p 8081:80 --name my-assignment-container my-assignment-app
                 echo "== Docker Deployment Completed =="
                 '''
             }
