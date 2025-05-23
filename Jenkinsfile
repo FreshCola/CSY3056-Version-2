@@ -5,9 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 bat '''
-                echo "== Starting Build =="
-                echo "Nothing to build for Python"
-                echo "== Build Completed =="
+                echo "== Starting Docker Build =="
+                docker build -t my-assignment-app .
+                echo "== Docker Build Completed =="
                 '''
             }
         }
@@ -15,9 +15,9 @@ pipeline {
         stage('Test') {
             steps {
                 bat '''
-                echo "== Running Tests =="
+                echo "== Running Unit Tests =="
                 python -m unittest discover
-                echo "== Tests Completed =="
+                echo "== Unit Tests Completed =="
                 '''
             }
         }
@@ -25,8 +25,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat '''
-                echo "== Deploying Application =="
-                echo "Deployment Successful (Simulated)"
+                echo "== Deploying Docker Container =="
+                docker run -d -p 8080:80 --name my-assignment-container my-assignment-app
+                echo "== Docker Deployment Completed =="
                 '''
             }
         }
