@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'Built-In Node' // 🖥 Jenkins agent (adjust if needed)
-    }
+    agent any
 
     stages {
         stage('Clone Repository') {
