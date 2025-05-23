@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git branch: 'main', url: 'https://github.com/FreshCola/CSY3056.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat '''
