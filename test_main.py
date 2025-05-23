@@ -14,6 +14,3 @@ class TestCalculator(unittest.TestCase):
 
     def test_divide(self):
         self.assertEqual(main.divide(8, 2), 4)
-
-if __name__ == "__main__":
-    unittest.main()
